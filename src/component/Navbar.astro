@@ -1,0 +1,49 @@
+---
+const {pathname} = Astro.url;
+var items = [
+    {
+        id: "inicio",
+        name: "Inicio",
+        img: "",
+        imgwhite: "",
+        href: "/",
+    },
+    {
+        id: "productos",
+        name: "Productos",
+        img: "../../public/img/new-product.png",
+        imgwhite: "../../public/img/new-productwhite.png",
+        href: "/productos",
+    },
+    {
+        id: "github",
+        name: "Github",
+        img: "../../public/img/github.png",
+        imgwhite: "../../public/img/githubwhite.png",
+        href: "https://github.com/nikogarboka",
+    },
+    {
+        id: "About",
+        name: "About",
+        img: "../../public/img/about.png",
+        imgwhite: "../../public/img/aboutwhite.png",
+        href: "/about",
+    },
+];
+
+---
+<ul class="container mx-auto p-5 flex justify-between">
+    {
+        items.map((item) => (
+            <li class="text-white flex gap-4 items-center px-6 hover:bg-white rounded-3xl hover:text-black">
+                <div class="hidden hover:hidden">
+                    <img src={item.imgwhite} class="hidden hover: h-10 w-10" alt=" " />
+                </div>
+                <div class="hover:visible">
+                   
+                </div>
+                <a href={item.href} class="flex gap-5 items-center">{(item.name!="Inicio") && <img src={item.img} class="h-10 w-10" alt="" />}{item.name}</a>
+            </li>
+        ))
+    }
+</ul>
